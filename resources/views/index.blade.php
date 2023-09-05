@@ -53,6 +53,25 @@
     margin-left: 36px;
     margin-top: 8px;
     }
+
+    .categories {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .category {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .main_section {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        min-width: 100vw;
+    }
    </style>
 </head>
 <body>
@@ -70,11 +89,23 @@
             <img src="" alt="">
             <img src="" alt="">
             <img src="" alt="">
+
         </div>
         <div class="Avtorizaciya">
             <button id="Extrance">Вход</button>
             <button id="Registration">Регистрация</button>
         </div>
     </header>
+    <section class="main_section">
+            <ul class="categories">
+        @foreach ($categories as $category)
+        <div class="category">
+            <li><a href='/category/{{$category->code}}'>{{$category->name}}</a></li>
+            <p>Описание категории</p>
+            <p>{{$category->description}}</p>
+        </div>
+        @endforeach
+    </ul>
+    </section>
 </body>
 </html>
